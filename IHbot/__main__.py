@@ -21,7 +21,7 @@ from IHbot.modules.helper_funcs.misc import paginate_modules
 PM_START_TEXT = """
 Hello {}, my name is Shizuka!
 
-I'm a group manager bot maintained by [this wonderful person](tg://user?id={}). I'm built in python3, using the \
+I'm a group manager bot maintained by [this wonderful person](t.me/Dark_Dragoon). I'm built in python3, using the \
 python-telegram-bot library \
 
 
