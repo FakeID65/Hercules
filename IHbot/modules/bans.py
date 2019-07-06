@@ -28,7 +28,7 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("Bc kisi ko mention toh kr. Jisko ban kru!")
         return ""
 
     try:
@@ -41,11 +41,11 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("Kaash main Is Chu Admin ko Ban kar Pata :p")
+        message.reply_text("Kaash mei Is Chu Admin ko Ban kar Paati")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I'm not gonna BAN myself, are you high?")
+        message.reply_text("Bc lulla hai kya? Khud ko ban thoda krungi!")
         return ""
 
     log = "<b>{}:</b>" \
@@ -61,13 +61,13 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     try:
         chat.kick_member(user_id)
         bot.send_sticker(chat.id, BAN_STICKER)
-        message.reply_text("Master, that Chu has been Banned")
+        message.reply_text("Kr dia bc ko ban")
         return log
 
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text('Master, that Chu has been Banned', quote=False)
+            message.reply_text('Kr dia bc ko ban', quote=False)
             return log
         else:
             LOGGER.warning(update)
@@ -104,11 +104,11 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("Kaash main Is Chu Admin ko Ban kar Pata :p")
+        message.reply_text("Kaash mei Is Chu Admin ko Ban kar Paati")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I'm not gonna BAN myself, are you high?")
+        message.reply_text("Bc lulla hai kya? Khud ko ban thoda krungi!")
         return ""
 
     if not reason:
@@ -187,7 +187,7 @@ def kick(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id):
-        message.reply_text("Kaash main Is Chu Admin ko Kick kar Pata :p")
+        message.reply_text("Kaash mei Is Chu Admin ko Kick kar Paati")
         return ""
 
     if user_id == bot.id:
@@ -249,7 +249,7 @@ def banme(bot: Bot, update: Update):
         update.effective_message.reply_text("Oof, I can't ban my master.")
         return
     elif is_user_admin(update.effective_chat, user_id):
-        update.effective_message.reply_text("Kaash main Is Chu Admin ko Ban kar Pata :p.")
+        update.effective_message.reply_text("Kaash mei Is Chu Admin ko Ban kar Paati.")
         return
 
     res = update.effective_chat.kick_member(user_id)
